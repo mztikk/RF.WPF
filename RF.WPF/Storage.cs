@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Reflection;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -6,7 +8,7 @@ namespace RF.WPF
 {
     public abstract class Storage<T> : IStorage where T : new()
     {
-        private const string StorageDir = "storage";
+        private static readonly string s_settingsDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Assembly.GetEntryAssembly().GetName().Name);
 
         private readonly string _name;
 
@@ -73,7 +75,20 @@ namespace RF.WPF
         public abstract Task SaveAsync();
         public abstract void Save();
 
-        protected string GetFilePath() => Path.ChangeExtension(Path.Combine(StorageDir, _name), "json");
+        public string GetSettingsDir()
+        {
+            if (!Directory.Exists(s_settingsDir))
+            {
+                Directory.CreateDirectory(s_settingsDir);
+            }
+
+            return s_settingsDir;
+        }
+
+        public string GetStorageDir() => Path.Combine(GetSettingsDir(), "storage");
+
+        public string GetFilePath() => Path.ChangeExtension(Path.Combine(GetStorageDir(), _name), "json");
+
         public abstract void ILoad();
     }
 
