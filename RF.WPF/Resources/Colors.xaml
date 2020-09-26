@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="PageBackground">#2D2D30</Color>
+    <Color x:Key="PageBackground2">#1E1E1E</Color>
+    <Color x:Key="PageBackground3">#101010</Color>
+    <Color x:Key="InsetPageBackground">#252526</Color>
+    <Color x:Key="ExsetPageBackground">#333337</Color>
+    <Color x:Key="TextColor">#F8F8F8</Color>
+    <Color x:Key="ElementMouseoverColor">#1C97EA</Color>
+    <Color x:Key="ElementSelectedColor">#007ACC</Color>
+    <Color x:Key="ElementBorderColor">#007ACC</Color>
+    <Color x:Key="CardBackground">#404045</Color>
+    <Color x:Key="CardShadow">#303035</Color>
+    <SolidColorBrush x:Key="ElementBorderBrush" Color="{DynamicResource ElementBorderColor}"/>
+    <SolidColorBrush x:Key="PageBackgroundBrush" Color="{DynamicResource PageBackground}"/>
+    <SolidColorBrush x:Key="PageBackgroundBrush2" Color="{DynamicResource PageBackground2}"/>
+    <SolidColorBrush x:Key="PageBackgroundBrush3" Color="{DynamicResource PageBackground3}"/>
+    <SolidColorBrush x:Key="InsetPageBackgroundBrush" Color="{DynamicResource InsetPageBackground}"/>
+    <SolidColorBrush x:Key="ExsetPageBackgroundBrush" Color="{DynamicResource ExsetPageBackground}"/>
+    <SolidColorBrush x:Key="TextColorBrush" Color="{DynamicResource TextColor}"/>
+    <SolidColorBrush x:Key="ElementMouseoverBrush" Color="{DynamicResource ElementMouseoverColor}"/>
+    <SolidColorBrush x:Key="ElementSelectedBrush" Color="{DynamicResource ElementSelectedColor}"/>
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="{DynamicResource CardBackground}"/>
+    <SolidColorBrush x:Key="CardShadowBrush" Color="{DynamicResource CardShadow}"/>
+</ResourceDictionary>
+
