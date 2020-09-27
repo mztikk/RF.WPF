@@ -1,4 +1,3 @@
-using System.Windows;
 using RF.WPF.MVVM;
 
 namespace RF.WPF.UI.Interaction
@@ -8,9 +7,6 @@ namespace RF.WPF.UI.Interaction
     /// </summary>
     public partial class ConfirmationView : ViewBase<ConfirmationViewModel>
     {
-        public ConfirmationView(ConfirmationViewModel viewModel) : base(viewModel)
-        {
-            InitializeComponent();
-        }
+        public ConfirmationView(ConfirmationViewModel viewModel) : base(viewModel) => InitializeComponent();
     }
 }
