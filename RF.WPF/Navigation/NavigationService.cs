@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using RF.WPF.MVVM;
+using RF.WPF.UI.Interaction;
 using Stylet;
 using StyletIoC;
 
@@ -18,13 +19,16 @@ namespace RF.WPF.Navigation
 
         private ViewModelBase? _lastViewModel = null;
 
-        public void NavigateTo<VM>() where VM : ViewModelBase
+        public void NavigateTo<VM>() where VM : ViewModelBase => NavigateTo<VM>(null);
+
+        public void NavigateTo<VM>(IViewAware? owner) where VM : ViewModelBase
         {
             VM viewModel = _container.Get<VM>();
-            InternalNavigateTo(viewModel);
+            InternalNavigateTo(viewModel, owner);
         }
 
-        public void NavigateTo<VM>(VM viewModel) where VM : ViewModelBase => InternalNavigateTo(viewModel);
+        public void NavigateTo<VM>(VM viewModel) where VM : ViewModelBase => NavigateTo(viewModel, null);
+        public void NavigateTo<VM>(VM viewModel, IViewAware? owner) where VM : ViewModelBase => InternalNavigateTo(viewModel, owner);
 
         public void NavigateBack()
         {
@@ -38,11 +42,31 @@ namespace RF.WPF.Navigation
             }
         }
 
-        private void InternalNavigateTo<VM>(VM viewModel) where VM : ViewModelBase
+        public ConfirmationResult GetConfirmation(string title, string message, string affirmativeText = "Yes", string negativeText = "No", string cancelText = "Cancel")
+        {
+            ConfirmationViewModel vm = _container.Get<ConfirmationViewModel>();
+            vm.Title = title;
+            vm.Message = message;
+            vm.AffirmativeText = affirmativeText;
+            vm.NegativeText = negativeText;
+            vm.CancelText = cancelText;
+            NavigateTo(vm);
+            return vm.ConfirmationResult;
+        }
+
+        private void InternalNavigateTo<VM>(VM viewModel, IViewAware? owner = null) where VM : ViewModelBase
         {
             _lastViewModel = viewModel;
             viewModel.OnNavigatedTo();
-            _windowManager.ShowDialog(viewModel);
+
+            if (owner is { })
+            {
+                _windowManager.ShowDialog(viewModel, owner);
+            }
+            else
+            {
+                _windowManager.ShowDialog(viewModel);
+            }
         }
     }
 }

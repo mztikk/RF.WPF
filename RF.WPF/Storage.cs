@@ -8,7 +8,7 @@ namespace RF.WPF
 {
     public abstract class Storage<T> : IStorage where T : new()
     {
-        private static readonly string s_settingsDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Assembly.GetEntryAssembly().GetName().Name);
+        private static readonly string s_settingsDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Assembly.GetEntryAssembly()!.GetName()!.Name!);
 
         private readonly string _name;
 

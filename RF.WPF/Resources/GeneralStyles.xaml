@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:core="clr-namespace:System;assembly=mscorlib">
     <core:Double x:Key="Normal">14</core:Double>
     <core:Double x:Key="Medium">16</core:Double>
+    <core:Double x:Key="Medium+">17</core:Double>
     <core:Double x:Key="Large">20</core:Double>
     <core:Double x:Key="Small">12</core:Double>
     <core:Double x:Key="Tiny">8</core:Double>
@@ -43,6 +44,11 @@
     <Style x:Key="TextLabel" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource TextColorBrush}"/>
         <Setter Property="FontSize" Value="{DynamicResource Normal}"/>
+    </Style>
+
+    <Style x:Key="MessageLabel" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource TextColorBrush}"/>
+        <Setter Property="FontSize" Value="{DynamicResource Medium+}"/>
     </Style>
 </ResourceDictionary>
 

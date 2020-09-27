@@ -4,12 +4,10 @@
     xmlns:core="clr-namespace:System;assembly=mscorlib"
     >
     
-    <Style x:Key="IconButton" TargetType="{x:Type ButtonBase}">
+    <Style x:Key="DefaultButton" TargetType="{x:Type ButtonBase}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="28"/>
-        <Setter Property="Padding" Value="4"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ElementBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
 
         <Setter Property="Template" Value="{DynamicResource ButtonTemplateEx}"/>
 
@@ -18,6 +16,14 @@
                 <Setter Property="Background" Value="{DynamicResource ElementMouseoverBrush}"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <Style x:Key="IconButton" BasedOn="{StaticResource DefaultButton}" TargetType="{x:Type ButtonBase}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Padding" Value="4"/>
     </Style>
 
     <Style x:Key="BigIconButton" BasedOn="{StaticResource IconButton}" TargetType="{x:Type ButtonBase}">

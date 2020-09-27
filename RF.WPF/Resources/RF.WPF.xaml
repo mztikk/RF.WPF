@@ -16,5 +16,6 @@
     </ResourceDictionary.MergedDictionaries>
 
     <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    <converters:StringLengthVisibleConverter x:Key="StringLengthVisibleConverter"/>
 </ResourceDictionary>
 
