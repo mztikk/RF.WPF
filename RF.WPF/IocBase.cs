@@ -16,5 +16,14 @@ namespace RF.WPF
         protected IEnumerable<Type> GetAllTypes() => AssemblyInfo.GetAllTypes(_assemblies);
 
         public virtual void Configure(IContainer container) { }
+
+        protected override void Load()
+        {
+            Bind<IocBase>().ToInstance(this);
+
+            Setup();
+        }
+
+        protected abstract void Setup();
     }
 }

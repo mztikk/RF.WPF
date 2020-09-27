@@ -10,9 +10,8 @@ namespace RF.WPF
         private static readonly string[] s_viewSuffix = new string[] { "View" };
         private static readonly string[] s_viewModelSuffix = new string[] { "ViewModel", "VM" };
 
-        protected override void Load()
+        protected override void Setup()
         {
-            Bind<IocBase>().ToInstance(this);
             Bind<Random>().To<CryptoRandom>().InSingletonScope();
             Bind<INavigationService>().To<NavigationService>().InSingletonScope();
 
