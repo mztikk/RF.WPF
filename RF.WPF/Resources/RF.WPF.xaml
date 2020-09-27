@@ -18,5 +18,6 @@
 
     <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
     <converters:StringLengthVisibleConverter x:Key="StringLengthVisibleConverter"/>
+    <converters:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
 </ResourceDictionary>
 
