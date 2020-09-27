@@ -37,7 +37,7 @@ namespace RF.WPF
             foreach (Type type in _storageTypes)
             {
                 var storage = container.Get(type) as IStorage;
-                storage.ILoad();
+                storage?.ILoad();
             }
         }
 
@@ -47,7 +47,7 @@ namespace RF.WPF
         {
             foreach (Type type in GetAllTypes())
             {
-                string baseName = type.BaseType?.FullName;
+                string? baseName = type.BaseType?.FullName;
                 if (baseName?.StartsWith("RF.WPF.Storage`1") == true)
                 {
                     Bind(type).ToSelf().InSingletonScope();
@@ -62,13 +62,13 @@ namespace RF.WPF
 
             foreach (Type type in GetAllTypes())
             {
-                string name = type.FullName;
+                string? name = type.FullName;
 
                 if (type.BaseType == viewModelType)
                 {
                     foreach (string suffix in s_viewModelSuffix)
                     {
-                        if (name.EndsWith(suffix))
+                        if (name is { } && name.EndsWith(suffix))
                         {
                             // on viewmodel
                             Bind(type).ToSelf();
@@ -79,7 +79,7 @@ namespace RF.WPF
 
                 foreach (string suffix in s_viewSuffix)
                 {
-                    if (name.EndsWith(suffix))
+                    if (name is { } && name.EndsWith(suffix))
                     {
                         // on view
                         Bind(type).ToSelf();
