@@ -20,7 +20,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="auto" MinHeight="40"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Background="{DynamicResource InsetPageBackgroundBrush}">
@@ -50,44 +50,29 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="2"
-                    FlowDirection="RightToLeft"
-                    >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            
-            <Button
-                Grid.Column="0"
-                Style="{DynamicResource DefaultButton}"
-                IsDefault="True"
-                Command="{s:Action Affirmative}"
-                >
-                <TextBlock
-                    Style="{DynamicResource TextLabel}"
-                    Text="{Binding AffirmativeText}"/>
-            </Button>
-            <Button
-                Grid.Column="1"
-                Style="{DynamicResource DefaultButton}"
-                Command="{s:Action Negative}"
-                >
-                <TextBlock
-                    Style="{DynamicResource TextLabel}"
-                    Text="{Binding NegativeText}"/>
-            </Button>
-            <Button
-                Grid.Column="2"
-                Style="{DynamicResource DefaultButton}"
-                IsCancel="True"
-                Command="{s:Action Cancel}"
-                >
-                <TextBlock
-                    Style="{DynamicResource TextLabel}"
-                    Text="{Binding CancelText}"/>
-            </Button>
-        </Grid>
+        <StackPanel Grid.Row="2">
+            <ItemsControl ItemsSource="{Binding Buttons}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="1" FlowDirection="RightToLeft"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button
+                            Style="{DynamicResource DefaultButton}"
+                            MinHeight="40"
+                            BorderBrush="{Binding AccentColor}"
+                            Command="{s:Action OnButton}"
+                            CommandParameter="{Binding}">
+                            <TextBlock
+                                Style="{DynamicResource TextLabel}"
+                                Foreground="{Binding TextColor}"
+                                Text="{Binding Text}"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
     </Grid>
 </base:ViewBase>

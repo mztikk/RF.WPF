@@ -8,6 +8,7 @@
     <Color x:Key="ElementMouseoverColor">#1C97EA</Color>
     <Color x:Key="ElementSelectedColor">#007ACC</Color>
     <Color x:Key="ElementBorderColor">#007ACC</Color>
+    <Color x:Key="AccentColor">#007ACC</Color>
     <Color x:Key="CardBackground">#404045</Color>
     <Color x:Key="CardShadow">#303035</Color>
     <SolidColorBrush x:Key="ElementBorderBrush" Color="{DynamicResource ElementBorderColor}"/>

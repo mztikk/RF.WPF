@@ -1,12 +1,16 @@
 using RF.WPF.MVVM;
 using RF.WPF.Navigation;
+using Stylet;
 
 namespace RF.WPF.UI.Interaction
 {
     public class ConfirmationViewModel : ViewModelBase
     {
-        public ConfirmationViewModel(INavigationService navigationService) : base(navigationService) => ConfirmationResult = ConfirmationResult.None;
-
+        public ConfirmationViewModel(INavigationService navigationService) : base(navigationService)
+        {
+            ConfirmationResult = ConfirmationResult.None;
+            Buttons = new BindableCollection<ConfirmationButtonInfo>();
+        }
 
         public override void OnNavigatedTo()
         {
@@ -15,6 +19,12 @@ namespace RF.WPF.UI.Interaction
             base.OnNavigatedTo();
         }
 
+        private BindableCollection<ConfirmationButtonInfo> _buttons;
+        public BindableCollection<ConfirmationButtonInfo> Buttons
+        {
+            get => _buttons;
+            set { _buttons = value; NotifyOfPropertyChange(); }
+        }
 
         private string _message;
         public string Message
@@ -23,31 +33,6 @@ namespace RF.WPF.UI.Interaction
             set { _message = value; NotifyOfPropertyChange(); }
         }
 
-
-        private string _affirmativeText;
-        public string AffirmativeText
-        {
-            get => _affirmativeText;
-            set { _affirmativeText = value; NotifyOfPropertyChange(); }
-        }
-
-
-        private string _negativeText;
-        public string NegativeText
-        {
-            get => _negativeText;
-            set { _negativeText = value; NotifyOfPropertyChange(); }
-        }
-
-
-        private string _cancelText;
-        public string CancelText
-        {
-            get => _cancelText;
-            set { _cancelText = value; NotifyOfPropertyChange(); }
-        }
-
-
         private ConfirmationResult _confirmationResult;
         public ConfirmationResult ConfirmationResult
         {
@@ -55,21 +40,10 @@ namespace RF.WPF.UI.Interaction
             set { _confirmationResult = value; NotifyOfPropertyChange(); }
         }
 
-        public void Affirmative()
+        public void OnButton(ConfirmationButtonInfo button)
         {
-            ConfirmationResult = ConfirmationResult.Affirmative;
-            NavigateBack();
-        }
-
-        public void Negative()
-        {
-            ConfirmationResult = ConfirmationResult.Negative;
-            NavigateBack();
-        }
-
-        public void Cancel()
-        {
-            ConfirmationResult = ConfirmationResult.Cancel;
+            ConfirmationResult = button.Type;
+            Buttons.Clear();
             NavigateBack();
         }
     }

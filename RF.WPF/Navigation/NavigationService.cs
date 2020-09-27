@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using RF.WPF.MVVM;
 using RF.WPF.UI.Interaction;
 using Stylet;
@@ -42,14 +43,12 @@ namespace RF.WPF.Navigation
             }
         }
 
-        public ConfirmationResult GetConfirmation(string title, string message, string affirmativeText = "Yes", string negativeText = "No", string cancelText = "Cancel")
+        public ConfirmationResult GetConfirmation(string title, string message, IEnumerable<ConfirmationButtonInfo> buttons)
         {
             ConfirmationViewModel vm = _container.Get<ConfirmationViewModel>();
             vm.Title = title;
             vm.Message = message;
-            vm.AffirmativeText = affirmativeText;
-            vm.NegativeText = negativeText;
-            vm.CancelText = cancelText;
+            vm.Buttons.AddRange(buttons);
             NavigateTo(vm);
             return vm.ConfirmationResult;
         }

@@ -11,6 +11,7 @@
 
         <ResourceDictionary Source="pack://application:,,,/RF.WPF;component/Resources/GeneralStyles.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/RF.WPF;component/Resources/ButtonStyles.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/RF.WPF;component/Resources/TabHeader.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/RF.WPF;component/Resources/Window.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>
