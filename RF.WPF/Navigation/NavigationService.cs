@@ -20,13 +20,17 @@ namespace RF.WPF.Navigation
 
         private ViewModelBase? _lastViewModel = null;
 
-        public void NavigateTo<VM>() where VM : ViewModelBase => NavigateTo<VM>(null);
-
-        public void NavigateTo<VM>(IViewAware? owner) where VM : ViewModelBase
+        public void NavigateTo<VM>() where VM : ViewModelBase
         {
             VM viewModel = _container.Get<VM>();
-            InternalNavigateTo(viewModel, owner);
+            InternalNavigateTo(viewModel);
         }
+
+        //public void NavigateTo<VM>(IViewAware? owner = null) where VM : ViewModelBase
+        //{
+        //    VM viewModel = _container.Get<VM>();
+        //    InternalNavigateTo(viewModel, owner);
+        //}
 
         public void NavigateTo<VM>(VM viewModel) where VM : ViewModelBase => NavigateTo(viewModel, null);
         public void NavigateTo<VM>(VM viewModel, IViewAware? owner) where VM : ViewModelBase => InternalNavigateTo(viewModel, owner);
