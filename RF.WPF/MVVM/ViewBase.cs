@@ -7,6 +7,6 @@ namespace RF.WPF.MVVM
 
         public readonly VM ViewModel;
 
-        public ViewBase(VM viewModel) => ViewModel = viewModel;
+        //public ViewBase(VM viewModel) => ViewModel = viewModel;
     }
 }

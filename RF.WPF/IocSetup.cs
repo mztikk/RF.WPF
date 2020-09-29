@@ -33,7 +33,7 @@ namespace RF.WPF
                         if (name is { } && name.EndsWith(suffix))
                         {
                             // on viewmodel
-                            Bind(type).ToSelf();
+                            Bind(type).ToSelf().AsWeakBinding();
                             break;
                         }
                     }
@@ -44,7 +44,7 @@ namespace RF.WPF
                     if (name is { } && name.EndsWith(suffix))
                     {
                         // on view
-                        Bind(type).ToSelf();
+                        Bind(type).ToSelf().AsWeakBinding();
                         break;
                     }
                 }

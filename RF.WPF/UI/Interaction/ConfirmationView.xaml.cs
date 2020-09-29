@@ -7,6 +7,6 @@ namespace RF.WPF.UI.Interaction
     /// </summary>
     public partial class ConfirmationView : ViewBase<ConfirmationViewModel>
     {
-        public ConfirmationView(ConfirmationViewModel viewModel) : base(viewModel) => InitializeComponent();
+        public ConfirmationView() => InitializeComponent();
     }
 }
