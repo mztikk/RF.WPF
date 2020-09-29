@@ -23,9 +23,6 @@ namespace RF.WPF.MVVM
 
         public virtual void OnNavigatedTo() { }
 
-        public virtual void NavigateBack()
-        {
-            _navigationService.NavigateBack();
-        }
+        public virtual void NavigateBack() => _navigationService.NavigateBack();
     }
 }
