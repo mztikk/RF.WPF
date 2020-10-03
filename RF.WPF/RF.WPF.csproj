@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\RFReborn\RFReborn\RFReborn.csproj" />
+    <ProjectReference Include="..\..\RLog\RLog\RLog.csproj" />
   </ItemGroup>
 
   <ItemGroup>
