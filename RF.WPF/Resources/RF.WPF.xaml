@@ -20,5 +20,6 @@
     <converters:StringLengthVisibleConverter x:Key="StringLengthVisibleConverter"/>
     <converters:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
     <converters:SecondsToTimespanConverter x:Key="SecondsToTimespanConverter"/>
+    <converters:DateTimeToLocalConverter x:Key="DateTimeToLocalConverter"/>
 </ResourceDictionary>
 
