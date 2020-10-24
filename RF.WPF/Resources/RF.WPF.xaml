@@ -19,7 +19,7 @@
     <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
     <converters:StringLengthVisibleConverter x:Key="StringLengthVisibleConverter"/>
     <converters:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
-    <converters:BoolVisibilityConverter x:Key="InverseBoolVisibilityConverter"/>
+    <converters:InverseBoolVisibilityConverter x:Key="InverseBoolVisibilityConverter"/>
     <converters:SecondsToTimespanConverter x:Key="SecondsToTimespanConverter"/>
     <converters:DateTimeToLocalConverter x:Key="DateTimeToLocalConverter"/>
 </ResourceDictionary>
