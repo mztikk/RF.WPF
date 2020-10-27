@@ -22,5 +22,7 @@
     <converters:InverseBoolVisibilityConverter x:Key="InverseBoolVisibilityConverter"/>
     <converters:SecondsToTimespanConverter x:Key="SecondsToTimespanConverter"/>
     <converters:DateTimeToLocalConverter x:Key="DateTimeToLocalConverter"/>
+    <converters:StringLengthBoolConverter x:Key="StringLengthBoolConverter"/>
+    <converters:InverseStringLengthBoolConverter x:Key="InverseStringLengthBoolConverter"/>
 </ResourceDictionary>
 
