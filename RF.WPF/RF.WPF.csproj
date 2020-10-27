@@ -11,13 +11,13 @@
     <RepositoryUrl>https://github.com/mztikk/RF.WPF</RepositoryUrl>
     <Authors>mztikk</Authors>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.6</Version>
-    <AssemblyVersion>1.0.6</AssemblyVersion>
+    <Version>1.0.7</Version>
+    <AssemblyVersion>1.0.7</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="RFReborn" Version="1.5.5" />
-    <PackageReference Include="RLog" Version="1.0.0" />
+    <PackageReference Include="RLog" Version="1.0.1" />
     <PackageReference Include="Stylet" Version="1.3.4" />
   </ItemGroup>
 
