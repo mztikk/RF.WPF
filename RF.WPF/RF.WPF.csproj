@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
@@ -11,8 +11,8 @@
     <RepositoryUrl>https://github.com/mztikk/RF.WPF</RepositoryUrl>
     <Authors>mztikk</Authors>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.7</Version>
-    <AssemblyVersion>1.0.7</AssemblyVersion>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
