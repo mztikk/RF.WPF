@@ -219,6 +219,11 @@ namespace RF.WPF
 
         private static byte[] Get() => Encoding.ASCII.GetBytes(Assembly.GetExecutingAssembly().FullName);
 
-        public byte[] GetEntropy() => _entropy.Value;
+        public byte[] GetEntropy()
+        {
+            byte[] rtn = new byte[_entropy.Value.Length];
+            Array.Copy(_entropy.Value, rtn, rtn.Length);
+            return rtn;
+        }
     }
 }
